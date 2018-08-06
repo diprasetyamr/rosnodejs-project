@@ -16,6 +16,7 @@ function talker() {
       const msg = new std_msgs.String();
       const msg2 = new std_msgs.String();
       const msg3 = new mobile_robot.velo();
+      const msg4 = new mobile_robot.paths();
 
       let sub = rosNode.subscribe('/chatter', std_msgs.String,
         (data) => { // define callback execution
