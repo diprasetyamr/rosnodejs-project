@@ -13,96 +13,86 @@ function talker() {
     .then((rosNode) => {
 
       //let pub = rosNode.advertise('/chatter', std_msgs.String);
-      let sub = rosNode.subscribe('/chatter', std_msgs.String,
+
+      //Location of the robot
+      let robotLocation = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
         (data) => { // define callback execution
-          rosnodejs.log.info('I heard: [' + data.data + ']');
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+          rosnodejs.log.info('Y: [' + data.pose.position.y.toString() + ']');
         }
       );
 
-      let sub2 = rosNode.subscribe('/chatter2', std_msgs.String,
+      let aSpeedM1 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
         (data) => { // define callback execution
-          rosnodejs.log.info('I heard2: [' + data.data + ']');
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
         }
       );
-      // //Location of the robot
-      // let robotLocation = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //     rosnodejs.log.info('Y: [' + data.pose.position.y.toString() + ']');
-      //   }
-      // );
-      //
-      // let aSpeedM1 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let aSpeedM2 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let aSpeedM3 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let aSpeedM4 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let tSpeedM1 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let tSpeedM2 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let tSpeedM3 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let tSpeedM4 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let tM1 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let tM2 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let tM3 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
-      //
-      // let tM4 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-      //   (data) => { // define callback execution
-      //     rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-      //   }
-      // );
+
+      let aSpeedM2 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let aSpeedM3 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let aSpeedM4 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let tSpeedM1 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let tSpeedM2 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let tSpeedM3 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let tSpeedM4 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let tM1 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let tM2 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let tM3 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
+
+      let tM4 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+        (data) => { // define callback execution
+          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+        }
+      );
 
       // Define a function to execute every 100ms
       // setInterval(() => {
