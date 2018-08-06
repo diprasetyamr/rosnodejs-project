@@ -3,6 +3,7 @@ var router = express.Router();
 var rosnodejs = require('rosnodejs');
 
 const std_msgs = rosnodejs.require('std_msgs').msg;
+const mobile_robot = rosnodejs.require('mobile_robot').msg;
 
 function talker() {
   // Register node with ROS master
