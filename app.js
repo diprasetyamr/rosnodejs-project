@@ -10,6 +10,11 @@ var rosRouter = require('./routes/rosnode');
 
 var app = express();
 
+global.tM = [];
+global.avelM = [];
+global.tvelM = [];
+global.posR = [];
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

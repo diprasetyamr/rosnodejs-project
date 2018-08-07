@@ -4,7 +4,7 @@ var rosnodejs = require('rosnodejs');
 
 const std_msgs = rosnodejs.require('std_msgs').msg;
 //const mobile_robot = rosnodejs.require('mobile_robot').msg;
-//const motor = rosnodejs.require('motor').msg;
+const motor = rosnodejs.require('motor').msg;
 const geometry_msgs = rosnodejs.require('geometry_msgs').msg;
 
 function talker() {
@@ -22,73 +22,19 @@ function talker() {
         }
       );
 
-      let aSpeedM1 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+      let aSpeedM = rosNode.subscribe('/avelMot', motor.speedM,
         (data) => { // define callback execution
           rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
         }
       );
 
-      let aSpeedM2 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+      let tSpeedM = rosNode.subscribe('/tvelMot', motor.speedM,
         (data) => { // define callback execution
           rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
         }
       );
 
-      let aSpeedM3 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-        (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-        }
-      );
-
-      let aSpeedM4 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-        (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-        }
-      );
-
-      let tSpeedM1 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-        (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-        }
-      );
-
-      let tSpeedM2 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-        (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-        }
-      );
-
-      let tSpeedM3 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-        (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-        }
-      );
-
-      let tSpeedM4 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-        (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-        }
-      );
-
-      let tM1 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-        (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-        }
-      );
-
-      let tM2 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-        (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-        }
-      );
-
-      let tM3 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
-        (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
-        }
-      );
-
-      let tM4 = rosNode.subscribe('/slam_out_pose', geometry_msgs.PoseStamped,
+      let tM = rosNode.subscribe('/tempMot', motor.temp,
         (data) => { // define callback execution
           rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
         }
