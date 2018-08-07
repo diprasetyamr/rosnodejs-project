@@ -24,19 +24,25 @@ function talker() {
 
       let aSpeedM = rosNode.subscribe('/avelMot', motor.speedM,
         (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+          for (int i = 0; i < 4; i++) {
+            rosnodejs.log.info('X: [' + data.speedM[i].toString() + ']');
+          }
         }
       );
 
       let tSpeedM = rosNode.subscribe('/tvelMot', motor.speedM,
         (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+          for (int i = 0; i < 4; i++) {
+            rosnodejs.log.info('X: [' + data.speedM[i].toString() + ']');
+          }
         }
       );
 
-      let tM = rosNode.subscribe('/tempMot', motor.temp,
+      let tM = rosNode.subscribe('/tempMot', motor.tempM,
         (data) => { // define callback execution
-          rosnodejs.log.info('X: [' + data.pose.position.x.toString() + ']');
+          for (int i = 0; i < 4; i++) {
+            rosnodejs.log.info('X: [' + data.tempM[i].toString() + ']');
+          }
         }
       );
 
