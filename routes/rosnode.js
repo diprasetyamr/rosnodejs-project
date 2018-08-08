@@ -4,7 +4,7 @@ var rosnodejs = require('rosnodejs');
 
 const std_msgs = rosnodejs.require('std_msgs').msg;
 //const mobile_robot = rosnodejs.require('mobile_robot').msg;
-const motor = rosnodejs.require('motor').msg;
+const motorData = rosnodejs.require('motorData').msg;
 const geometry_msgs = rosnodejs.require('geometry_msgs').msg;
 
 function talker() {
@@ -22,7 +22,7 @@ function talker() {
         }
       );
 
-      let aSpeedM = rosNode.subscribe('/avelMot', motor.speedM,
+      let aSpeedM = rosNode.subscribe('/avelMot', motorData.speedM,
         (data) => { // define callback execution
           for (var i = 0; i < 4; i++) {
             rosnodejs.log.info('X: [' + data.speedM[i].toString() + ']');
@@ -30,7 +30,7 @@ function talker() {
         }
       );
 
-      let tSpeedM = rosNode.subscribe('/tvelMot', motor.speedM,
+      let tSpeedM = rosNode.subscribe('/tvelMot', motorData.speedM,
         (data) => { // define callback execution
           for (var i = 0; i < 4; i++) {
             rosnodejs.log.info('X: [' + data.speedM[i].toString() + ']');
@@ -38,7 +38,7 @@ function talker() {
         }
       );
 
-      let tM = rosNode.subscribe('/tempMot', motor.tempM,
+      let tM = rosNode.subscribe('/tempMot', motorData.tempM,
         (data) => { // define callback execution
           for (var i = 0; i < 4; i++) {
             rosnodejs.log.info('X: [' + data.tempM[i].toString() + ']');
