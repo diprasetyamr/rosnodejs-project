@@ -24,7 +24,7 @@ function talker() {
 
       let aSpeedM = rosNode.subscribe('/avelMot', motor.speedM,
         (data) => { // define callback execution
-          for (int i = 0; i < 4; i++) {
+          for (var i = 0; i < 4; i++) {
             rosnodejs.log.info('X: [' + data.speedM[i].toString() + ']');
           }
         }
@@ -32,7 +32,7 @@ function talker() {
 
       let tSpeedM = rosNode.subscribe('/tvelMot', motor.speedM,
         (data) => { // define callback execution
-          for (int i = 0; i < 4; i++) {
+          for (var i = 0; i < 4; i++) {
             rosnodejs.log.info('X: [' + data.speedM[i].toString() + ']');
           }
         }
@@ -40,7 +40,7 @@ function talker() {
 
       let tM = rosNode.subscribe('/tempMot', motor.tempM,
         (data) => { // define callback execution
-          for (int i = 0; i < 4; i++) {
+          for (var i = 0; i < 4; i++) {
             rosnodejs.log.info('X: [' + data.tempM[i].toString() + ']');
           }
         }
